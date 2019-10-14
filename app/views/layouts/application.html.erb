@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vietnam</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if session[:user_id] %>
+      <%= link_to "Logout", logout_path, method: :post %>
+        Login Id:<%= @current_user.username %> ID:<%= session[:user_id] %>
+    <% else %>
+       <%= link_to "Login", login_path %>
+    <% end %>
+    <%= flash[:success] %>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+<% @posts.each do |post| %>
+  <p>
+    <%= post.id %>
+    <%= post.title %>
+    <%= post.content %>
+    <%= post.user_id %>
+    <%= post.created_at %>
+    Category =>
+    <% post.categories.each do |category| %>
+      <%= category.name %>
+    <% end %>
+    Created by: <%= post.user.username %>
+    <%= link_to "Delete", post_path(post), method: :delete %>
+  </p>
+<% end %>
